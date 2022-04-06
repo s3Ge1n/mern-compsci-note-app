@@ -7,7 +7,9 @@ const {
     deleteNote,
 } = require('../controllers/noteController')
 
-router.route('/').get(getNotes).post(setNote)
-router.route('/:id').put(updateNote).delete(deleteNote)
+const { protect } = require('../middleware/authMiddleware')
+
+router.route('/').get(protect, getNotes).post(protect, setNote)
+router.route('/:id').put(protect, updateNote).delete(protect, deleteNote)
 
 module.exports = router
