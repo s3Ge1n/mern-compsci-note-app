@@ -1,8 +1,25 @@
 import {useDispatch} from 'react-redux';
-import {deleteNote} from '../features/notes/noteSlice';
+import { useState } from 'react';
+import CustomPopup from './CustomPopup';
+import {deleteNote, createNote} from '../features/notes/noteSlice';
+import {FaPencilAlt} from 'react-icons/fa'
 
 function NoteItem({note}) {
+    const [visibility, setVisibility] = useState(false);
+    const [text, setText] = useState('');
     const dispatch = useDispatch()
+
+    const popupCloseHandler = (e) => {
+        setVisibility(e);
+    };
+
+    const onSubmit = e => {
+        e.preventDefault()
+
+        dispatch(createNote({text}))
+        dispatch(deleteNote(note._id))
+        setText('')
+    }
 
     return (
         <div className="note">
@@ -11,6 +28,26 @@ function NoteItem({note}) {
             </div>
             <h2>{note.text}</h2>
             <button onClick={() => dispatch(deleteNote(note._id))} className="close">X</button>
+            <button onClick={(e) => setVisibility(!visibility)} className="update"><FaPencilAlt /></button>
+
+            <CustomPopup 
+                show={visibility} 
+                onClose={popupCloseHandler} 
+                title="Update note">
+                    <section className="form">
+                        <form onSubmit={onSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="text">Note</label>
+                                <input defaultValue={note.text} onChange={(e) => setText(e.target.value)} />
+                            </div>
+                            <div className="form-group">
+                                <button className="btn btn-block" type='submit'>
+                                    Update Note
+                                </button>
+                            </div>
+                            </form>
+                    </section>
+            </CustomPopup>
         </div>
     )
 }
