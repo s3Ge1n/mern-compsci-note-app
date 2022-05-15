@@ -1,8 +1,9 @@
 import {useDispatch} from 'react-redux';
 import { useState } from 'react';
 import CustomPopup from './CustomPopup';
-import {deleteNote, createNote} from '../features/notes/noteSlice';
+import {deleteNote, updateNote} from '../features/notes/noteSlice';
 import {FaPencilAlt} from 'react-icons/fa'
+import {toast} from 'react-toastify'
 
 function NoteItem({note}) {
     const [visibility, setVisibility] = useState(false);
@@ -16,9 +17,17 @@ function NoteItem({note}) {
     const onSubmit = e => {
         e.preventDefault()
 
-        dispatch(createNote({text}))
-        dispatch(deleteNote(note._id))
+        if(text == '') {
+            toast.error('Nothing to update')
+        } else {
+
+        const noteData = {
+            id: note._id,
+            text: text
+        }
+        dispatch(updateNote(noteData))
         setText('')
+    }
     }
 
     return (
