@@ -17,7 +17,7 @@ function NoteItem({note}) {
     const onSubmit = e => {
         e.preventDefault()
 
-        if(text == '') {
+        if(text === '') {
             toast.error('Nothing to update')
         } else {
 

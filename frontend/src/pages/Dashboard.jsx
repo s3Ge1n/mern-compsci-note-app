@@ -22,12 +22,6 @@ function Dashboard() {
             navigate('/login')
         }
 
-        // dispatch(getNotes())
-
-        // return () => {
-        //     dispatch(reset())
-        // }
-
         dispatch(getNotes()) 
         if(!isError){
             dispatch(reset())
