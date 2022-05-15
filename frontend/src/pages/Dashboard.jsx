@@ -22,11 +22,17 @@ function Dashboard() {
             navigate('/login')
         }
 
-        dispatch(getNotes())
+        // dispatch(getNotes())
 
-        return () => {
+        // return () => {
+        //     dispatch(reset())
+        // }
+
+        dispatch(getNotes()) 
+        if(!isError){
             dispatch(reset())
         }
+
     }, [user, navigate, isError, message, dispatch])
 
     if (isLoading) {

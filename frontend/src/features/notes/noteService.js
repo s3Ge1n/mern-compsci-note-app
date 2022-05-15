@@ -33,7 +33,7 @@ const getNotes = async (token) => {
 const deleteNote = async (noteId, token) => {
     const config = {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
         },
     }
 

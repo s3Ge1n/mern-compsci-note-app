@@ -96,9 +96,9 @@ export const noteSlice = createSlice({
                 state.isLoading = true
             })
             .addCase(deleteNote.fulfilled, (state, action) => {
-                state.notes = state.notes.filter((note) => note._id !== action.payload.id)
                 state.isLoading = false
                 state.isSuccess = true
+                state.notes = state.notes.filter((note) => note._id !== action.payload.id)
             })
             .addCase(deleteNote.rejected, (state, action) => {
                 state.isLoading = false
