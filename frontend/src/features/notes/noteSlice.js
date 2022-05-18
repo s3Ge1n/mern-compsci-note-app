@@ -63,7 +63,12 @@ export const deleteNote = createAsyncThunk('notes/delete', async (id, thunkAPI) 
 export const updateNote = createAsyncThunk('notes/update', async (noteData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
-        return await noteService.updateNote(noteData.id, noteData.text, token)
+        const id = noteData.id
+        const data = {
+            text: noteData.text,
+            md: noteData.md
+        }
+        return await noteService.updateNote(id, data, token)
     } catch (error) {
         const message =
         (error.response &&

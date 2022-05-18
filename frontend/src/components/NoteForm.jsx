@@ -10,7 +10,12 @@ function NoteForm() {
     const onSubmit = e => {
         e.preventDefault()
 
-        dispatch(createNote({text}))
+        const noteData = {
+            text: text,
+            md: ''
+        }
+
+        dispatch(createNote(noteData))
         setText('')
     }
 
@@ -18,7 +23,7 @@ function NoteForm() {
         <section className="form">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="text">Note</label>
+                    <label htmlFor="text">Note Title</label>
                     <input type="text" name='text' id='text' value={text} onChange={(e) => setText(e.target.value)} />
                 </div>
                 <div className="form-group">

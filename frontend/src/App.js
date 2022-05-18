@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Account from './pages/Account'
+import Note from './pages/Note'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/account' element={<Account />} />
+            <Route path='/note/*' element={<Note />} />
           </Routes>
         </div>
       </Router>

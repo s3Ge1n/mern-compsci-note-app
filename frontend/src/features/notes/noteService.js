@@ -11,6 +11,8 @@ const createNote = async (noteData, token) => {
         }
     }
 
+    console.log(noteData);
+
     const response = await axios.post(API_URL, noteData, config);
 
     return response.data;
@@ -50,7 +52,7 @@ const updateNote = async (noteId, noteData, token) => {
         }
     }
 
-    const response = await axios.put(API_URL + noteId, {'text':noteData}, config);
+    const response = await axios.put(API_URL + noteId, noteData, config);
 
     return response.data;
 }

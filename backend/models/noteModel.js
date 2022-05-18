@@ -9,7 +9,11 @@ const noteSchema = mongoose.Schema({
     text: {
         type: String,
         required: [true, 'Please add a text value']
-    }
+    },
+    md: {
+        type: String,
+        required: [false]
+    },
 }, {
     timestamps: true
 })

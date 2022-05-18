@@ -4,6 +4,7 @@ import CustomPopup from './CustomPopup';
 import {deleteNote, updateNote} from '../features/notes/noteSlice';
 import {FaPencilAlt} from 'react-icons/fa'
 import {toast} from 'react-toastify'
+import { Link } from 'react-router-dom';
 
 function NoteItem({note}) {
     const [visibility, setVisibility] = useState(false);
@@ -23,6 +24,7 @@ function NoteItem({note}) {
 
         const noteData = {
             id: note._id,
+            md: note.md,
             text: text
         }
         dispatch(updateNote(noteData))
@@ -35,7 +37,9 @@ function NoteItem({note}) {
             <div>
                 {new Date(note.createdAt).toLocaleDateString('en-US')}
             </div>
-            <h2>{note.text}</h2>
+            <Link className="extend" to={"/note/"+note._id}>
+                <h2 className='title'>{note.text}</h2>
+            </Link>            
             <button onClick={() => dispatch(deleteNote(note._id))} className="close">X</button>
             <button onClick={(e) => setVisibility(!visibility)} className="update"><FaPencilAlt /></button>
 
@@ -46,7 +50,7 @@ function NoteItem({note}) {
                     <section className="form">
                         <form onSubmit={onSubmit}>
                             <div className="form-group">
-                                <label htmlFor="text">Note</label>
+                                <label htmlFor="text">Note Title</label>
                                 <input defaultValue={note.text} onChange={(e) => setText(e.target.value)} />
                             </div>
                             <div className="form-group">
