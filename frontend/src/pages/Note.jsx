@@ -38,7 +38,7 @@ function Note() {
 
     const onSubmit = e => {
         e.preventDefault()
-
+        
         const noteData = {
             id: note._id,
             text: note.text,
@@ -70,48 +70,7 @@ function Note() {
                         type="text" 
                         name='markdown' 
                         id='markdown' 
-                        placeholder="Enter your markdown note here:
-                        Example Markdown Usage:
-
-                        new line : (hit enter key twice)
-
-                        $$
-                        Block Math Expression
-                        $$
-
-                        $Inline Math Expression$
-                        
-                        # Heading 1
-                        ## Heading 2
-                        ### Heading 3
-                        #### Heading 4
-                        ##### Heading 5
-                        ###### Heading 6
-                        ####### Heading 7
-                        *italic*
-                        **bold**
-                        [link](https://www.google.com)
-                        * list item
-                            - list item
-                                + list item
-                        ~~Strikethrough~~
-                        ```code
-                        code
-                        ```
-                        1. ordered list item
-                        2. ordered list item
-
-                        Math:
-                            fraction : \\frac{1}{2}
-                            square root : \\sqrt{4}
-                            exponential : e^{i\\pi} = -1
-                            substript : H_{2}O
-                            complex numbers : \\mathbf{1+i}
-                            trigonometric functions : \\sin(x) \\cos(x) \\tan(x)
-                            logarithms : \\log_2(x) \\log_10(x) \\log_{10}(x) \\log_{2}(x)
-                            absolute value : \\left| \\frac{1}{2} \\right| = \\sqrt{1/2}
-
-                        "
+                        placeholder="Enter your markdown note here:&#10;&#10;Example Markdown Usage:&#10;&#10;;new line : (hit enter key twice)&#10;&#10;$$&#10;Block Math Expression&#10;$$&#10;&#10;$Inline Math Expression$&#10;&#10;# Heading 1&#10;## Heading 2&#10;### Heading 3&#10;#### Heading 4&#10;##### Heading 5&#10;###### Heading 6&#10;####### Heading 7&#10;&#10;*italic*&#10;**bold**&#10;***bold italic***&#10;_underline_&#10;__underline bold__&#10;___underline bold italic___&#10;~~Strikethrough~~&#10;[link](https://www.google.com)&#10;* list item&#10;&#8205;&emsp;- list item&#10;&#8205;&emsp;&emsp;+ list item&#10;&#8205;```code&#10;code&#10;```&#10;&#8205;1. ordered list item&#10;2. ordered list item&#10;&#8205;&emsp;1. ordered list item&#10;&#8205;Math:&#10;&#8205;&emsp;fraction : \\frac{1}{2}&#10;&#8205;&emsp;square root : \\sqrt{4}&#10;&#8205;&emsp;exponential : e^{i\\pi} = -1&#10;&#8205;&emsp;substript : H_{2}O&#10;&#8205;&emsp;complex numbers : \\mathbf{1+i}&#10;&#8205;&emsp;trigonometric functions : \\sin(x) \\cos(x) \\tan(x)&#10;&#8205;&emsp;logarithms : \\log_2(x) \\log_10(x) \\log_{10}(x) \\log_{2}(x)&#10;&#8205;&emsp;absolute value : \\left| \\frac{1}{2} \\right| = \\sqrt{1/2}"
                         defaultValue={note.md}
                         value={text} 
                         class='markdown'
