@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Note App",
+  "name": "React Note App; Comp Sci Website",
   "icons": [
     {
       "src": "favicon.ico",
